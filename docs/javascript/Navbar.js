@@ -29,10 +29,12 @@ navbar.innerHTML = `
       </div>
 
       <button id="navToggle" type="button"
-        class="lg:hidden inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-3 py-2 text-slate-900 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-900/10"
-        aria-controls="mobileNav" aria-expanded="false">
-        <i class="fa-solid fa-bars"></i>
-      </button>
+  class="lg:hidden inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-3 py-2 text-slate-900 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-900/10"
+  aria-controls="mobileNav" aria-expanded="false">
+  <i id="navOpenIcon" class="fa-solid fa-bars"></i>
+  <i id="navCloseIcon" class="fa-solid fa-xmark !hidden"></i>
+</button>
+
     </div>
 
     <div id="mobileNav"
@@ -108,39 +110,54 @@ navbar.innerHTML = `
 
 `;
 
-
 const navToggle = document.getElementById('navToggle');
 const mobileNav = document.getElementById('mobileNav');
+const navOpenIcon = document.getElementById('navOpenIcon');
+const navCloseIcon = document.getElementById('navCloseIcon');
+
+function setIcons(isOpen) {
+  if (isOpen) {
+    navOpenIcon.classList.add('hidden');
+    navCloseIcon.classList.remove('hidden');
+  } else {
+    navCloseIcon.classList.add('hidden');
+    navOpenIcon.classList.remove('hidden');
+  }
+}
 
 function openMobileNav() {
   mobileNav.classList.remove('max-h-0', 'opacity-0', 'pointer-events-none');
   mobileNav.classList.add('max-h-[520px]', 'opacity-100');
   navToggle.setAttribute('aria-expanded', 'true');
-  navToggle.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+  setIcons(true);
 }
 
 function closeMobileNav() {
   mobileNav.classList.add('max-h-0', 'opacity-0', 'pointer-events-none');
   mobileNav.classList.remove('max-h-[520px]', 'opacity-100');
   navToggle.setAttribute('aria-expanded', 'false');
-  navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+  setIcons(false);
 }
 
-navToggle.addEventListener('click', () => {
+navToggle.addEventListener('click', (e) => {
+  e.stopPropagation();
   const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
   if (isOpen) closeMobileNav();
   else openMobileNav();
 });
 
-window.addEventListener('resize', () => {
-  if (window.innerWidth >= 1024) closeMobileNav();
-});
-
 document.addEventListener('click', (e) => {
+  const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+  if (!isOpen) return;
+
   const clickedInside = mobileNav.contains(e.target) || navToggle.contains(e.target);
-  if (!clickedInside && navToggle.getAttribute('aria-expanded') === 'true') closeMobileNav();
+  if (!clickedInside) closeMobileNav();
 });
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') closeMobileNav();
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 1024) closeMobileNav();
 });
