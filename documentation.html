@@ -34,7 +34,7 @@
         content="Encrypted MySQL backups plus scheduled restore verification. Own your S3 storage and get proof your backups work." />
     <meta name="twitter:image" content="https://backupverified.com/assets/og-image.png" />
 
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/docs/assets/logo.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -78,6 +78,7 @@
     <div id="bottomToTopScroll"></div>
     <div id="navbar"></div>
 
+
     <main class="bg-white">
         <section class="relative overflow-hidden bg-slate-950 text-white">
             <div class="absolute inset-0">
@@ -88,7 +89,7 @@
                 </div>
             </div>
 
-            <div class="relative mx-auto w-full max-w-7xl px-6 py-16 lg:px-8">
+            <div class="relative mx-auto max-w-7xl px-6 py-16 lg:px-8">
                 <div class="mx-auto max-w-3xl text-center" data-aos="fade-up">
                     <div
                         class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80">
@@ -99,7 +100,7 @@
                         Documentation
                     </h1>
                     <p class="mt-4 text-lg text-white/80">
-                        Installation overview, required setup, and practical guidance for verified MySQL backups.
+                        Setup, configuration, and best practices for verified MySQL backups.
                     </p>
                 </div>
 
@@ -114,7 +115,7 @@
                                 </div>
                                 <div>
                                     <p class="text-sm font-semibold text-white">Install</p>
-                                    <p class="mt-1 text-sm text-white/70">Setup the agent</p>
+                                    <p class="mt-1 text-sm text-white/70">Agent setup</p>
                                 </div>
                             </div>
                         </a>
@@ -151,64 +152,99 @@
             </div>
         </section>
 
-        <section class="py-16">
-            <div class="mx-auto w-full max-w-7xl px-6 lg:px-8">
-                <div class="grid gap-10 lg:grid-cols-12">
-                    <aside class="lg:col-span-4 xl:col-span-3" data-aos="fade-up">
-                        <div class="sticky top-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-                            <div class="flex items-center justify-between">
-                                <p class="text-sm font-semibold text-slate-900">On this page</p>
-                                <span
-                                    class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-600">
-                                    Quick nav
-                                </span>
-                            </div>
+        <section class="py-10 lg:py-16">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="grid gap-8 lg:grid-cols-12">
+                    <div class="lg:col-span-4 xl:col-span-3" data-aos="fade-up">
+                        <div class="lg:sticky lg:top-24">
+                            <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                                <div class="flex items-center justify-between gap-3">
+                                    <p class="text-sm font-semibold text-slate-900">On this page</p>
 
-                            <nav class="mt-5 space-y-1 text-sm">
-                                <a href="#overview"
-                                    class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Overview</a>
-                                <a href="#requirements"
-                                    class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Requirements</a>
-                                <a href="#install"
-                                    class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Install
-                                    the agent</a>
-                                <a href="#config"
-                                    class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Configuration</a>
-                                <a href="#backup"
-                                    class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Run
-                                    your first backup</a>
-                                <a href="#verify"
-                                    class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Restore
-                                    verification</a>
-                                <a href="#portal"
-                                    class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Portal
-                                    & alerts</a>
-                                <a href="#troubleshooting"
-                                    class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Troubleshooting</a>
-                                <a href="#faq"
-                                    class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">FAQ</a>
-                            </nav>
+                                    <button id="docNavToggle" type="button"
+                                        class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-100 lg:hidden">
+                                        <i class="fa-solid fa-bars"></i>
+                                        Menu
+                                    </button>
+                                </div>
 
-                            <div class="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                                <div class="flex flex-col items-start gap-3">
-                                    <div
-                                        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-emerald-600/10 text-emerald-700">
-                                        <i class="fa-solid fa-life-ring"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-sm font-semibold text-slate-900">Need help?</p>
-                                        <p class="mt-1 text-sm text-slate-600">
-                                            Email <a href="mailto:support@backupverified.com"
-                                                class="font-semibold text-slate-900 hover:underline">support@backupverified.com</a>
-                                        </p>
+                                <div id="docNav" class="mt-5 overflow-hidden lg:overflow-visible"
+                                    style="max-height: 0px; transition: max-height 300ms ease;">
+                                    <nav class="space-y-1 text-sm">
+                                        <a href="#overview"
+                                            class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Overview</a>
+                                        <a href="#requirements"
+                                            class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Requirements</a>
+                                        <a href="#install"
+                                            class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Install
+                                            the agent</a>
+                                        <a href="#config"
+                                            class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Configuration</a>
+                                        <a href="#backup"
+                                            class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Run
+                                            your first backup</a>
+                                        <a href="#verify"
+                                            class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Restore
+                                            verification</a>
+                                        <a href="#portal"
+                                            class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Portal
+                                            & alerts</a>
+                                        <a href="#troubleshooting"
+                                            class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Troubleshooting</a>
+                                        <a href="#faq"
+                                            class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">FAQ</a>
+                                    </nav>
+
+                                    <div class="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                                        <div class="flex items-start gap-3">
+                                            <div
+                                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-emerald-600/10 text-emerald-700">
+                                                <i class="fa-solid fa-life-ring"></i>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-semibold text-slate-900">Need help?</p>
+                                                <p class="mt-1 text-sm text-slate-600">
+                                                    Email <a href="mailto:support@backupverified.com"
+                                                        class="font-semibold text-slate-900 hover:underline">support@backupverified.com</a>
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+
+                                <div class="mt-5 hidden lg:block">
+                                    <nav class="space-y-1 text-sm">
+                                        <a href="#overview"
+                                            class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Overview</a>
+                                        <a href="#requirements"
+                                            class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Requirements</a>
+                                        <a href="#install"
+                                            class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Install
+                                            the agent</a>
+                                        <a href="#config"
+                                            class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Configuration</a>
+                                        <a href="#backup"
+                                            class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Run
+                                            your first backup</a>
+                                        <a href="#verify"
+                                            class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Restore
+                                            verification</a>
+                                        <a href="#portal"
+                                            class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Portal
+                                            & alerts</a>
+                                        <a href="#troubleshooting"
+                                            class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">Troubleshooting</a>
+                                        <a href="#faq"
+                                            class="block rounded-xl px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900">FAQ</a>
+                                    </nav>
+                                </div>
+
                             </div>
                         </div>
-                    </aside>
+                    </div>
 
-                    <div class="lg:col-span-8 xl:col-span-9 space-y-10">
-                        <div id="overview" class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+                    <div class="lg:col-span-8 xl:col-span-9 space-y-8 lg:space-y-10">
+                        <div id="overview" class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm"
                             data-aos="fade-up">
                             <div class="flex items-start gap-4">
                                 <div
@@ -218,17 +254,16 @@
                                 <div>
                                     <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Overview</h2>
                                     <p class="mt-3 text-slate-600 leading-relaxed">
-                                        BackupVerified is built to be simple: a lightweight agent creates MySQL backups,
-                                        encrypts them locally,
-                                        and uploads them to your own AWS S3 bucket. On a schedule, the verification
-                                        system performs test restores
-                                        in a clean environment to prove the backups are usable.
+                                        BackupVerified is designed to be simple: a lightweight agent creates MySQL
+                                        backups, encrypts them locally,
+                                        and uploads them to your AWS S3 bucket. On a schedule, verification performs
+                                        test restores in a clean environment.
                                     </p>
                                 </div>
                             </div>
                         </div>
 
-                        <div id="requirements" class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+                        <div id="requirements" class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm"
                             data-aos="fade-up">
                             <div class="flex items-start gap-4">
                                 <div
@@ -244,28 +279,23 @@
                                     <div class="mt-6 grid gap-4 sm:grid-cols-2">
                                         <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
                                             <p class="text-sm font-semibold text-slate-900">AWS S3 bucket</p>
-                                            <p class="mt-2 text-sm text-slate-600">
-                                                Create a bucket in your AWS account to store encrypted backups.
-                                            </p>
+                                            <p class="mt-2 text-sm text-slate-600">Create a bucket in your AWS account
+                                                to store encrypted backups.</p>
                                         </div>
                                         <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
                                             <p class="text-sm font-semibold text-slate-900">Server access</p>
-                                            <p class="mt-2 text-sm text-slate-600">
-                                                SSH access to the machine running MySQL and permission to run scheduled
-                                                tasks.
-                                            </p>
+                                            <p class="mt-2 text-sm text-slate-600">SSH access to the machine running
+                                                MySQL and permission to schedule jobs.</p>
                                         </div>
                                         <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
                                             <p class="text-sm font-semibold text-slate-900">Backup user</p>
-                                            <p class="mt-2 text-sm text-slate-600">
-                                                A MySQL user with minimum required privileges to dump the database.
-                                            </p>
+                                            <p class="mt-2 text-sm text-slate-600">A MySQL user with minimum required
+                                                privileges to dump the database.</p>
                                         </div>
                                         <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
                                             <p class="text-sm font-semibold text-slate-900">Encryption key</p>
-                                            <p class="mt-2 text-sm text-slate-600">
-                                                A secure key/passphrase for encrypting backups before upload.
-                                            </p>
+                                            <p class="mt-2 text-sm text-slate-600">A secure key/passphrase for
+                                                encrypting backups before upload.</p>
                                         </div>
                                     </div>
 
@@ -279,8 +309,7 @@
                                                 <p class="text-sm font-semibold text-slate-900">Security reminder</p>
                                                 <p class="mt-2 text-sm text-slate-700">
                                                     Do not paste passwords, private keys, or secrets into support
-                                                    emails. Keep secrets in your environment
-                                                    variables or secure configuration.
+                                                    emails. Use environment variables or secure config.
                                                 </p>
                                             </div>
                                         </div>
@@ -290,7 +319,7 @@
                             </div>
                         </div>
 
-                        <div id="install" class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+                        <div id="install" class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm"
                             data-aos="fade-up">
                             <div class="flex items-start gap-4">
                                 <div
@@ -301,13 +330,13 @@
                                     <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Install the agent
                                     </h2>
                                     <p class="mt-3 text-slate-600 leading-relaxed">
-                                        Download the BackupVerified agent and place the configuration file on your
+                                        Download the agent, make it executable, and place your configuration file on the
                                         server.
                                     </p>
 
                                     <div
                                         class="mt-6 rounded-3xl border border-slate-200 bg-slate-950 p-5 text-slate-100">
-                                        <div class="flex items-center justify-between gap-4">
+                                        <div class="flex flex-wrap items-center justify-between gap-3">
                                             <p class="text-sm font-semibold text-white">Install (example)</p>
                                             <span
                                                 class="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80">CLI</span>
@@ -318,10 +347,9 @@ sudo mv backupverified-agent /usr/local/bin/backupverified</code></pre>
                                     </div>
 
                                     <div class="mt-4 rounded-3xl border border-slate-200 bg-slate-50 p-6">
-                                        <p class="text-sm font-semibold text-slate-900">Where to put config</p>
-                                        <p class="mt-2 text-sm text-slate-600">A common path is:</p>
+                                        <p class="text-sm font-semibold text-slate-900">Suggested config path</p>
                                         <div
-                                            class="mt-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800">
+                                            class="mt-3 overflow-x-auto rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800">
                                             /etc/backupverified/config.yml
                                         </div>
                                     </div>
@@ -329,7 +357,7 @@ sudo mv backupverified-agent /usr/local/bin/backupverified</code></pre>
                             </div>
                         </div>
 
-                        <div id="config" class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+                        <div id="config" class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm"
                             data-aos="fade-up">
                             <div class="flex items-start gap-4">
                                 <div
@@ -339,14 +367,12 @@ sudo mv backupverified-agent /usr/local/bin/backupverified</code></pre>
                                 <div class="w-full">
                                     <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Configuration</h2>
                                     <p class="mt-3 text-slate-600 leading-relaxed">
-                                        Fill in your MySQL connection details, S3 destination, and schedule. Keep
-                                        secrets out of your repo and prefer
-                                        environment variables where possible.
+                                        Configure MySQL details, S3 destination, schedule, retention, and encryption.
                                     </p>
 
                                     <div
                                         class="mt-6 rounded-3xl border border-slate-200 bg-slate-950 p-5 text-slate-100">
-                                        <div class="flex items-center justify-between gap-4">
+                                        <div class="flex flex-wrap items-center justify-between gap-3">
                                             <p class="text-sm font-semibold text-white">config.yml (example)</p>
                                             <span
                                                 class="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80">YAML</span>
@@ -374,22 +400,20 @@ storage:
                                     <div class="mt-6 grid gap-4 sm:grid-cols-2">
                                         <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
                                             <p class="text-sm font-semibold text-slate-900">Schedule</p>
-                                            <p class="mt-2 text-sm text-slate-600">
-                                                Use cron format to control when backups run.
-                                            </p>
+                                            <p class="mt-2 text-sm text-slate-600">Use cron format to control backup
+                                                timing.</p>
                                         </div>
                                         <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
                                             <p class="text-sm font-semibold text-slate-900">Retention</p>
-                                            <p class="mt-2 text-sm text-slate-600">
-                                                Control how long backup files are kept in your S3 bucket.
-                                            </p>
+                                            <p class="mt-2 text-sm text-slate-600">Control how long backups remain
+                                                available.</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div id="backup" class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+                        <div id="backup" class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm"
                             data-aos="fade-up">
                             <div class="flex items-start gap-4">
                                 <div
@@ -400,13 +424,12 @@ storage:
                                     <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Run your first
                                         backup</h2>
                                     <p class="mt-3 text-slate-600 leading-relaxed">
-                                        After configuration, run the agent once to confirm it can create and upload an
-                                        encrypted backup.
+                                        Run the agent once to confirm it can create and upload an encrypted backup.
                                     </p>
 
                                     <div
                                         class="mt-6 rounded-3xl border border-slate-200 bg-slate-950 p-5 text-slate-100">
-                                        <div class="flex items-center justify-between gap-4">
+                                        <div class="flex flex-wrap items-center justify-between gap-3">
                                             <p class="text-sm font-semibold text-white">Run</p>
                                             <span
                                                 class="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80">CLI</span>
@@ -440,7 +463,7 @@ backupverified run --config /etc/backupverified/config.yml</code></pre>
                             </div>
                         </div>
 
-                        <div id="verify" class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+                        <div id="verify" class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm"
                             data-aos="fade-up">
                             <div class="flex items-start gap-4">
                                 <div
@@ -451,31 +474,28 @@ backupverified run --config /etc/backupverified/config.yml</code></pre>
                                     <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Restore
                                         verification</h2>
                                     <p class="mt-3 text-slate-600 leading-relaxed">
-                                        Verification runs periodically download your encrypted backup and perform a test
-                                        restore in a temporary environment.
+                                        Verification runs download your encrypted backup and perform a test restore in a
+                                        clean environment.
                                         Results are recorded so you have proof your backups work.
                                     </p>
 
                                     <div class="mt-6 grid gap-4 sm:grid-cols-2">
                                         <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-                                            <p class="text-sm font-semibold text-slate-900">What verification checks</p>
-                                            <p class="mt-2 text-sm text-slate-600">
-                                                A restore completes successfully and the database is readable after
-                                                import.
-                                            </p>
+                                            <p class="text-sm font-semibold text-slate-900">What it checks</p>
+                                            <p class="mt-2 text-sm text-slate-600">Restore completes successfully and
+                                                the DB is readable.</p>
                                         </div>
                                         <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-                                            <p class="text-sm font-semibold text-slate-900">How often it runs</p>
-                                            <p class="mt-2 text-sm text-slate-600">
-                                                Frequency depends on your plan and schedule (nightly, weekly, etc.).
-                                            </p>
+                                            <p class="text-sm font-semibold text-slate-900">How often</p>
+                                            <p class="mt-2 text-sm text-slate-600">Depends on plan and your desired
+                                                confidence level.</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div id="portal" class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+                        <div id="portal" class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm"
                             data-aos="fade-up">
                             <div class="flex items-start gap-4">
                                 <div
@@ -486,9 +506,8 @@ backupverified run --config /etc/backupverified/config.yml</code></pre>
                                     <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Portal & alerts
                                     </h2>
                                     <p class="mt-3 text-slate-600 leading-relaxed">
-                                        The client portal provides visibility into backup history, verification results,
-                                        and basic health signals.
-                                        Alerts and notifications can be configured as available in your account.
+                                        The portal provides visibility into backup history and verification results.
+                                        Alerts can be configured as available.
                                     </p>
 
                                     <div class="mt-6 rounded-3xl border border-slate-200 bg-slate-50 p-6">
@@ -511,7 +530,8 @@ backupverified run --config /etc/backupverified/config.yml</code></pre>
                             </div>
                         </div>
 
-                        <div id="troubleshooting" class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+                        <div id="troubleshooting"
+                            class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm"
                             data-aos="fade-up">
                             <div class="flex items-start gap-4">
                                 <div
@@ -523,30 +543,26 @@ backupverified run --config /etc/backupverified/config.yml</code></pre>
                                     </h2>
                                     <div class="mt-4 space-y-4">
                                         <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-                                            <p class="text-sm font-semibold text-slate-900">Backup fails to upload to S3
-                                            </p>
+                                            <p class="text-sm font-semibold text-slate-900">Upload fails</p>
                                             <p class="mt-2 text-sm text-slate-600">
-                                                Check IAM permissions for PutObject, verify bucket region, and confirm
-                                                network connectivity from the server.
+                                                Verify IAM permissions (PutObject), bucket region, and server
+                                                connectivity to AWS.
                                             </p>
                                         </div>
 
                                         <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-                                            <p class="text-sm font-semibold text-slate-900">Backup completes, but
-                                                verification fails</p>
+                                            <p class="text-sm font-semibold text-slate-900">Verification fails</p>
                                             <p class="mt-2 text-sm text-slate-600">
-                                                Common causes include corrupted dumps, insufficient disk space in the
-                                                restore environment, or incompatible
-                                                MySQL versions. Review verification logs and adjust settings.
+                                                Common causes include corrupted dumps, low disk space, or MySQL version
+                                                mismatches.
                                             </p>
                                         </div>
 
                                         <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-                                            <p class="text-sm font-semibold text-slate-900">Scheduled runs not firing
-                                            </p>
+                                            <p class="text-sm font-semibold text-slate-900">Schedule not running</p>
                                             <p class="mt-2 text-sm text-slate-600">
-                                                Confirm cron/service scheduler is configured correctly and that the
-                                                agent has execution permissions.
+                                                Confirm cron/service timers are configured and the agent has execution
+                                                permissions.
                                             </p>
                                         </div>
                                     </div>
@@ -554,7 +570,7 @@ backupverified run --config /etc/backupverified/config.yml</code></pre>
                             </div>
                         </div>
 
-                        <div id="faq" class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+                        <div id="faq" class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm"
                             data-aos="fade-up">
                             <div class="flex items-start gap-4">
                                 <div
@@ -588,8 +604,8 @@ backupverified run --config /etc/backupverified/config.yml</code></pre>
                                             <div class="faq-panel overflow-hidden px-6"
                                                 style="max-height: 0px; transition: max-height 300ms ease;">
                                                 <div class="pb-6 text-slate-600">
-                                                    Backups are encrypted before leaving your server. This helps reduce
-                                                    risk during transfer and storage.
+                                                    Backups are encrypted before leaving your server to reduce exposure
+                                                    during transfer and storage.
                                                 </div>
                                             </div>
                                         </div>
@@ -618,7 +634,7 @@ backupverified run --config /etc/backupverified/config.yml</code></pre>
                                                 style="max-height: 0px; transition: max-height 300ms ease;">
                                                 <div class="pb-6 text-slate-600">
                                                     You create and control the S3 bucket. BackupVerified uploads
-                                                    encrypted backup objects into your account.
+                                                    encrypted backups into your account.
                                                 </div>
                                             </div>
                                         </div>
@@ -646,8 +662,8 @@ backupverified run --config /etc/backupverified/config.yml</code></pre>
                                             <div class="faq-panel overflow-hidden px-6"
                                                 style="max-height: 0px; transition: max-height 300ms ease;">
                                                 <div class="pb-6 text-slate-600">
-                                                    Verification runs restore the backup in a clean temporary
-                                                    environment and records the result in your account history.
+                                                    Verification runs restore the backup in a clean environment and
+                                                    records the result in your history.
                                                 </div>
                                             </div>
                                         </div>
@@ -664,7 +680,7 @@ backupverified run --config /etc/backupverified/config.yml</code></pre>
                                                 <p class="mt-2 text-sm text-slate-600">
                                                     Email <a href="mailto:support@backupverified.com"
                                                         class="font-semibold text-slate-900 hover:underline">support@backupverified.com</a>
-                                                    with your environment details and we’ll help.
+                                                    with environment details (never credentials).
                                                 </p>
                                             </div>
                                         </div>
@@ -707,7 +723,39 @@ backupverified run --config /etc/backupverified/config.yml</code></pre>
                 }
             });
         });
+
+        const docNav = document.getElementById('docNav');
+        const docNavToggle = document.getElementById('docNavToggle');
+
+        function setDocNavDefault() {
+            if (!docNav) return;
+            if (window.matchMedia('(min-width: 1024px)').matches) {
+                docNav.style.maxHeight = 'none';
+                if (docNavToggle) docNavToggle.setAttribute('aria-expanded', 'true');
+            } else {
+                docNav.style.maxHeight = '0px';
+                if (docNavToggle) docNavToggle.setAttribute('aria-expanded', 'false');
+            }
+        }
+
+        setDocNavDefault();
+        window.addEventListener('resize', setDocNavDefault);
+
+        if (docNavToggle && docNav) {
+            docNavToggle.addEventListener('click', () => {
+                const isOpen = docNav.style.maxHeight && docNav.style.maxHeight !== '0px' && docNav.style.maxHeight !== 'none';
+
+                if (isOpen) {
+                    docNav.style.maxHeight = '0px';
+                    docNavToggle.setAttribute('aria-expanded', 'false');
+                } else {
+                    docNav.style.maxHeight = docNav.scrollHeight + 'px';
+                    docNavToggle.setAttribute('aria-expanded', 'true');
+                }
+            });
+        }
     </script>
+
 
 
     <div class="" id="footer"></div>

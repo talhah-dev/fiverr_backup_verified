@@ -1,49 +1,41 @@
-# Furnace Repair & Installation Website
+# BackupVerified (Static Website)
 
-A modern, responsive static website built for furnace repair and installation services.
+Static marketing + documentation site for **Backup Verified** hosted on **Netlify**.
 
-## 🔧 Services Covered
-- Furnace Repair
-- Emergency Furnace Repair
-- Furnace Installation
-- Furnace Replacement
-- Furnace Tune-Ups
+## Tech
+- Static HTML pages
+- Tailwind (CDN): `@tailwindcss/browser@4`
+- Font Awesome icons
+- AOS animations
+- Optional: Lenis smooth scroll (if already included globally)
 
-## 🎨 Design System
-- Light theme
-- Primary color: #a1000d
-- Secondary color: #ff8000
-- Font: Poppins
-- Icons: Font Awesome
+## Pages
+- `index.html` (Home)
+- `features.html`
+- `how-it-works.html`
+- `pricing.html`
+- `documentation.html`
+- `about.html`
+- `contact.html`
+- `support.html`
+- `signup.html`
+- `login.html`
+- `privacy.html`
+- `terms.html`
+- `complaints.html`
+- `report-website.html`
 
-## 🛠 Tech Stack
-- HTML5
-- Tailwind CSS (CDN)
-- Vanilla JavaScript
-- AOS (Animate on Scroll)
+## SEO
+- `sitemap.xml` at site root
+- Add `robots.txt` (recommended) pointing to sitemap:
+  - `Sitemap: https://backupverified.com/sitemap.xml`
 
-## 📄 Pages
-- Home
-- About Us
-- Services
-- Individual Service Pages
-- FAQ
-- Contact Us
+## Netlify Deploy
+1. Drag & drop the project folder into Netlify (or connect repo later).
+2. Ensure `sitemap.xml` is in the root output directory.
+3. Set domain to `backupverified.com`.
 
-## 🚀 Features
-- Fully responsive layout
-- Smooth animations
-- SEO-ready structure
-- Clean UI with professional spacing
-- Reusable components
-
-## 📂 SEO Files Included
-- robots.txt
-- sitemap.xml
-
-## 📌 Notes
-This is a static website. No backend or database is required.
-
----
-
-© 2026 Furnace Services. All rights reserved.
+## Notes
+- All pages are static HTML.
+- Backend authentication + client portal will be added later.
+- Avoid placing secrets in HTML, forms, or emails.
