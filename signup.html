@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>BackupVerified — Verified MySQL Backups & Restore Testing</title>
+    <meta name="description"
+        content="BackupVerified creates encrypted offsite MySQL backups and verifies them with scheduled restore testing. Own your storage in your AWS S3 bucket and get proof your backups work." />
+    <meta name="keywords"
+        content="MySQL backup, database backup, backup verification, restore testing, encrypted backups, AWS S3 backups, disaster recovery, backup monitoring, MySQL restore, backup service" />
+    <meta name="author" content="Backup Verified" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+
+    <link rel="canonical" href="https://backupverified.com/" />
+    <meta name="theme-color" content="#0B1220" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="BackupVerified" />
+    <meta property="og:title" content="BackupVerified — Verified MySQL Backups & Restore Testing" />
+    <meta property="og:description"
+        content="Encrypted offsite MySQL backups plus scheduled restore verification. You don’t just have backups — you have proof they work." />
+    <meta property="og:url" content="https://backupverified.com/" />
+    <meta property="og:image" content="https://backupverified.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BackupVerified — Verified MySQL Backups & Restore Testing" />
+    <meta name="twitter:description"
+        content="Encrypted MySQL backups plus scheduled restore verification. Own your S3 storage and get proof your backups work." />
+    <meta name="twitter:image" content="https://backupverified.com/assets/og-image.png" />
+
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "BackupVerified",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Linux, macOS, Windows",
+      "url": "https://backupverified.com/",
+      "description": "BackupVerified creates encrypted offsite MySQL backups and verifies them with scheduled restore testing. Own your storage in your AWS S3 bucket and get proof your backups work.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Pricing will be published soon."
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Backup Verified",
+        "url": "https://backupverified.com/"
+      }
+    }
+  </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.1/dist/lenis.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+</head>
+
+
+<body>
+
+
+
+    <div id="bottomToTopScroll"></div>
+    <div id="navbar"></div>
+
+    <main class="bg-white">
+        <section class="relative overflow-hidden bg-slate-950 text-white">
+            <div class="absolute inset-0">
+                <div class="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-blue-500/25 blur-3xl"></div>
+                <div class="absolute top-24 -right-24 h-80 w-80 rounded-full bg-emerald-500/20 blur-3xl"></div>
+                <div
+                    class="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_0%,rgba(59,130,246,0.22),rgba(15,23,42,0))]">
+                </div>
+            </div>
+
+            <div class="relative mx-auto max-w-7xl px-6 py-16 lg:px-8">
+                <div class="mx-auto max-w-3xl text-center" data-aos="fade-up">
+                    <div
+                        class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80">
+                        <span class="inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
+                        Create your account
+                    </div>
+                    <h1 class="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
+                        Sign up for BackupVerified
+                    </h1>
+                    <p class="mt-4 text-lg text-white/80">
+                        Start with automated MySQL backups and add restore verification when you’re ready.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="grid gap-10 lg:grid-cols-5">
+                    <div class="lg:col-span-2" data-aos="fade-up">
+                        <h2 class="text-2xl font-semibold tracking-tight text-slate-900">
+                            What you’ll get
+                        </h2>
+                        <p class="mt-4 text-slate-600">
+                            Create your account now. Portal authentication and full onboarding will be connected when
+                            backend is enabled.
+                        </p>
+
+                        <div class="mt-8 space-y-4">
+                            <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-emerald-600/10 text-emerald-700">
+                                        <i class="fa-solid fa-lock"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-semibold text-slate-900">Encrypted backups</p>
+                                        <p class="mt-2 text-sm text-slate-600">
+                                            Backups are encrypted before they leave your server.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-blue-600/10 text-blue-700">
+                                        <i class="fa-solid fa-cloud"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-semibold text-slate-900">Client-owned storage</p>
+                                        <p class="mt-2 text-sm text-slate-600">
+                                            Store backups in your own AWS S3 bucket to keep full control.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-amber-600/10 text-amber-700">
+                                        <i class="fa-solid fa-rotate"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-semibold text-slate-900">Verified restores</p>
+                                        <p class="mt-2 text-sm text-slate-600">
+                                            Run scheduled restore tests to confirm backups actually work.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-indigo-600/10 text-indigo-700">
+                                        <i class="fa-solid fa-chart-line"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-semibold text-slate-900">Portal visibility</p>
+                                        <p class="mt-2 text-sm text-slate-600">
+                                            View backup history and verification status in your client portal.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 rounded-3xl border border-slate-200 bg-white p-6">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-slate-900/5 text-slate-900">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-slate-900">Security note</p>
+                                    <p class="mt-2 text-sm text-slate-600">
+                                        Never share database passwords or private keys in sign-up fields.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-3" data-aos="zoom-in-up" data-aos-delay="100">
+                        <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+                            <div class="flex items-center justify-between gap-4">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-slate-900">Create your account</h3>
+                                    <p class="mt-1 text-sm text-slate-600">It takes less than a minute.</p>
+                                </div>
+                                <div
+                                    class="hidden sm:flex items-center gap-2 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-2 text-xs text-slate-700">
+                                    <i class="fa-solid fa-circle-check text-emerald-600"></i>
+                                    Secure by design
+                                </div>
+                            </div>
+
+                            <form action="#" method="post" class="mt-8 space-y-5">
+                                <div class="grid gap-5 sm:grid-cols-2">
+                                    <div>
+                                        <label for="firstName" class="block text-sm font-semibold text-slate-900">First
+                                            name</label>
+                                        <input id="firstName" name="firstName" type="text" required
+                                            class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10" />
+                                    </div>
+
+                                    <div>
+                                        <label for="lastName" class="block text-sm font-semibold text-slate-900">Last
+                                            name</label>
+                                        <input id="lastName" name="lastName" type="text" required
+                                            class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10" />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="email" class="block text-sm font-semibold text-slate-900">Work
+                                        email</label>
+                                    <input id="email" name="email" type="email" autocomplete="email" required
+                                        class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10" />
+                                </div>
+
+                                <div>
+                                    <label for="company" class="block text-sm font-semibold text-slate-900">Company
+                                        (optional)</label>
+                                    <input id="company" name="company" type="text"
+                                        class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10" />
+                                </div>
+
+                                <div class="grid gap-5 sm:grid-cols-2">
+                                    <div>
+                                        <label for="password"
+                                            class="block text-sm font-semibold text-slate-900">Password</label>
+                                        <div class="relative">
+                                            <input id="password" name="password" type="password" required minlength="8"
+                                                autocomplete="new-password"
+                                                class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 pr-12 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10" />
+                                            <button type="button"
+                                                class="togglePass absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-900">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                        </div>
+                                        <p class="mt-2 text-xs text-slate-500">Use at least 8 characters.</p>
+                                    </div>
+
+                                    <div>
+                                        <label for="confirmPassword"
+                                            class="block text-sm font-semibold text-slate-900">Confirm password</label>
+                                        <div class="relative">
+                                            <input id="confirmPassword" name="confirmPassword" type="password" required
+                                                minlength="8" autocomplete="new-password"
+                                                class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 pr-12 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10" />
+                                            <button type="button"
+                                                class="togglePass absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-900">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+                                    <div class="flex items-start gap-4">
+                                        <div
+                                            class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-blue-600/10 text-blue-700">
+                                            <i class="fa-solid fa-bell"></i>
+                                        </div>
+                                        <div class="w-full">
+                                            <p class="text-sm font-semibold text-slate-900">Onboarding preference</p>
+                                            <div class="mt-3 grid gap-3 sm:grid-cols-2">
+                                                <label
+                                                    class="flex cursor-pointer items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 hover:bg-slate-50">
+                                                    <input type="radio" name="plan" value="starter" class="h-4 w-4"
+                                                        checked />
+                                                    Backups only (Starter)
+                                                </label>
+                                                <label
+                                                    class="flex cursor-pointer items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 hover:bg-slate-50">
+                                                    <input type="radio" name="plan" value="standard" class="h-4 w-4" />
+                                                    Backups + Verification (Standard)
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <label class="flex items-start gap-3 text-sm text-slate-700">
+                                    <input id="agree" name="agree" type="checkbox" required class="mt-1 h-4 w-4" />
+                                    <span>
+                                        I agree to the
+                                        <a href="terms.html" class="font-semibold text-slate-900 hover:underline">Terms
+                                            of Service</a>
+                                        and
+                                        <a href="privacy.html"
+                                            class="font-semibold text-slate-900 hover:underline">Privacy Policy</a>.
+                                    </span>
+                                </label>
+
+                                <button type="submit"
+                                    class="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900/20">
+                                    Create account
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+
+                                <div class="mt-4 text-center text-sm text-slate-600">
+                                    Already have an account?
+                                    <a href="login.html" class="font-semibold text-slate-900 hover:underline">Log in</a>
+                                </div>
+
+                                <div class="mt-6 rounded-3xl border border-emerald-200 bg-emerald-50 p-5">
+                                    <div class="flex items-start gap-4">
+                                        <div
+                                            class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-emerald-600/10 text-emerald-700">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-semibold text-slate-900">Next step after signup</p>
+                                            <p class="mt-2 text-sm text-slate-700">
+                                                You’ll be able to access the client portal once backend authentication
+                                                is connected.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="mt-6 rounded-3xl border border-slate-200 bg-slate-50 p-6" data-aos="fade-up"
+                            data-aos-delay="150">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-amber-600/10 text-amber-700">
+                                    <i class="fa-solid fa-life-ring"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-slate-900">Need help?</p>
+                                    <p class="mt-2 text-sm text-slate-600">
+                                        Contact support at
+                                        <a href="mailto:support@backupverified.com"
+                                            class="font-semibold text-slate-900 hover:underline">support@backupverified.com</a>.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const toggleButtons = document.querySelectorAll('.togglePass');
+
+        toggleButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const input = btn.parentElement.querySelector('input');
+                const icon = btn.querySelector('i');
+
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        });
+    </script>
+
+
+    <div class="" id="footer"></div>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://unpkg.com/lenis@1.3.1/dist/lenis.min.js"></script>
+    <script src="./Docs/javascript/Navbar.js"></script>
+    <script src="./Docs/javascript/global.js"></script>
+    <script src="./Docs/javascript/Footer.js"></script>
+
+
+</body>
+
+</html>

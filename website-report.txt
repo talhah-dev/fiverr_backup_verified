@@ -1,0 +1,50 @@
+Project Name: Furnace Repair & Installation Website
+
+Project Type:
+Static HTML Website
+
+Purpose:
+To provide homeowners with clear, professional information about furnace services
+including repair, installation, replacement, tune-ups, and emergency services.
+
+Pages Included:
+- Home
+- About Us
+- Services
+- Furnace Repair
+- Emergency Furnace Repair
+- Furnace Installation
+- Furnace Replacement
+- Furnace Tune-Ups
+- FAQ
+- Contact Us
+
+Technologies Used:
+- HTML5
+- Tailwind CSS (CDN)
+- JavaScript
+- Font Awesome Icons
+- Google Fonts (Poppins)
+- AOS (Animate on Scroll)
+
+Design Theme:
+- Light Theme
+- Primary Color: #a1000d
+- Secondary Color: #ff8000
+- Clean spacing and modern UI
+- Fully responsive design
+
+Features:
+- Responsive navigation
+- Animated hero sections
+- Service-specific pages
+- FAQ accordion with smooth transitions
+- Call-to-action sections
+- SEO-friendly structure
+- Sitemap and robots.txt included
+
+Target Audience:
+Residential homeowners looking for reliable furnace services.
+
+Status:
+Completed

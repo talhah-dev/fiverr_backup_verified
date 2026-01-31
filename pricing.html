@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>BackupVerified — Verified MySQL Backups & Restore Testing</title>
+    <meta name="description"
+        content="BackupVerified creates encrypted offsite MySQL backups and verifies them with scheduled restore testing. Own your storage in your AWS S3 bucket and get proof your backups work." />
+    <meta name="keywords"
+        content="MySQL backup, database backup, backup verification, restore testing, encrypted backups, AWS S3 backups, disaster recovery, backup monitoring, MySQL restore, backup service" />
+    <meta name="author" content="Backup Verified" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+
+    <link rel="canonical" href="https://backupverified.com/" />
+    <meta name="theme-color" content="#0B1220" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="BackupVerified" />
+    <meta property="og:title" content="BackupVerified — Verified MySQL Backups & Restore Testing" />
+    <meta property="og:description"
+        content="Encrypted offsite MySQL backups plus scheduled restore verification. You don’t just have backups — you have proof they work." />
+    <meta property="og:url" content="https://backupverified.com/" />
+    <meta property="og:image" content="https://backupverified.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BackupVerified — Verified MySQL Backups & Restore Testing" />
+    <meta name="twitter:description"
+        content="Encrypted MySQL backups plus scheduled restore verification. Own your S3 storage and get proof your backups work." />
+    <meta name="twitter:image" content="https://backupverified.com/assets/og-image.png" />
+
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "BackupVerified",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Linux, macOS, Windows",
+      "url": "https://backupverified.com/",
+      "description": "BackupVerified creates encrypted offsite MySQL backups and verifies them with scheduled restore testing. Own your storage in your AWS S3 bucket and get proof your backups work.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Pricing will be published soon."
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Backup Verified",
+        "url": "https://backupverified.com/"
+      }
+    }
+  </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.1/dist/lenis.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+</head>
+
+
+<body>
+
+
+
+    <div id="bottomToTopScroll"></div>
+    <div id="navbar"></div>
+
+    <main class="bg-white">
+        <section class="relative overflow-hidden bg-slate-950 text-white">
+            <div class="absolute inset-0">
+                <div class="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-blue-500/25 blur-3xl"></div>
+                <div class="absolute top-24 -right-24 h-80 w-80 rounded-full bg-emerald-500/20 blur-3xl"></div>
+                <div
+                    class="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_0%,rgba(59,130,246,0.22),rgba(15,23,42,0))]">
+                </div>
+            </div>
+
+            <div class="relative mx-auto max-w-7xl px-6 py-16 lg:px-8">
+                <div class="mx-auto max-w-3xl text-center" data-aos="fade-up">
+                    <div
+                        class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80">
+                        <span class="inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
+                        Pricing
+                    </div>
+                    <h1 class="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
+                        Simple plans for verified backups
+                    </h1>
+                    <p class="mt-4 text-lg text-white/80">
+                        Start with automated MySQL backups, then add restore verification for confidence when it matters
+                        most.
+                    </p>
+                </div>
+
+                <div class="mx-auto mt-10 max-w-5xl" data-aos="zoom-in-up" data-aos-delay="100">
+                    <div class="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+                        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-white">
+                                    <i class="fa-solid fa-circle-info"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-white">Pricing availability</p>
+                                    <p class="mt-1 text-sm text-white/75">
+                                        Exact pricing will be published soon. You can still sign up for early access and
+                                        onboarding support.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-3 sm:flex-row shrink-0">
+                                <a href="signup.html"
+                                    class="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-white/30">
+                                    Get early access
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                                <a href="contact.html"
+                                    class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/20">
+                                    Talk to support
+                                    <i class="fa-solid fa-headset"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="mx-auto max-w-3xl text-center" data-aos="fade-up">
+                    <h2 class="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+                        Choose your plan
+                    </h2>
+                    <p class="mt-4 text-lg text-slate-600">
+                        Plans are designed around verification frequency and the number of databases you manage.
+                    </p>
+                </div>
+
+                <div class="mt-14 grid gap-6 lg:grid-cols-3">
+                    <div class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm" data-aos="zoom-in-up">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-blue-600/10 text-blue-700">
+                                <i class="fa-solid fa-box"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Starter</h3>
+                                <p class="mt-1 text-slate-600">Automated backups stored in your S3 bucket.</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+                            <p class="text-sm font-semibold text-slate-900">Pricing coming soon</p>
+                            <p class="mt-1 text-sm text-slate-600">Best for single apps and small teams.</p>
+                        </div>
+
+                        <ul class="mt-6 space-y-3 text-sm text-slate-700">
+                            <li class="flex items-start gap-3">
+                                <span class="mt-0.5 text-emerald-600"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Scheduled MySQL backups</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="mt-0.5 text-emerald-600"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Encryption before upload</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="mt-0.5 text-emerald-600"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Stored in your AWS S3 bucket</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="mt-0.5 text-emerald-600"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Basic backup health signals</span>
+                            </li>
+                        </ul>
+
+                        <a href="signup.html"
+                            class="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-900/10">
+                            Get started
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="relative rounded-3xl border border-slate-200 bg-slate-900 p-7 text-white shadow-sm"
+                        data-aos="zoom-in-up" data-aos-delay="100">
+                        <div
+                            class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-emerald-500 px-4 py-1 text-xs font-semibold text-slate-900">
+                            Most popular
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-white">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold">Standard</h3>
+                                <p class="mt-1 text-white/80">Backups plus scheduled restore verification.</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                            <p class="text-sm font-semibold">Pricing coming soon</p>
+                            <p class="mt-1 text-sm text-white/75">Ideal for production workloads.</p>
+                        </div>
+
+                        <ul class="mt-6 space-y-3 text-sm text-white/85">
+                            <li class="flex items-start gap-3">
+                                <span class="mt-0.5 text-emerald-300"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Everything in Starter</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="mt-0.5 text-emerald-300"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Restore verification on a schedule</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="mt-0.5 text-emerald-300"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Verification history + status</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="mt-0.5 text-emerald-300"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Priority onboarding support</span>
+                            </li>
+                        </ul>
+
+                        <a href="signup.html"
+                            class="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-white/30">
+                            Get early access
+                            <i class="fa-solid fa-bolt"></i>
+                        </a>
+                    </div>
+
+                    <div class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm" data-aos="zoom-in-up"
+                        data-aos-delay="200">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-amber-600/10 text-amber-700">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Pro</h3>
+                                <p class="mt-1 text-slate-600">More frequent verification and multi-database support.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+                            <p class="text-sm font-semibold text-slate-900">Pricing coming soon</p>
+                            <p class="mt-1 text-sm text-slate-600">Best for agencies and teams.</p>
+                        </div>
+
+                        <ul class="mt-6 space-y-3 text-sm text-slate-700">
+                            <li class="flex items-start gap-3">
+                                <span class="mt-0.5 text-emerald-600"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Everything in Standard</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="mt-0.5 text-emerald-600"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>More frequent verification runs</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="mt-0.5 text-emerald-600"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Multi-database support</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="mt-0.5 text-emerald-600"><i class="fa-solid fa-circle-check"></i></span>
+                                <span>Advanced health reporting</span>
+                            </li>
+                        </ul>
+
+                        <a href="contact.html"
+                            class="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-900/10">
+                            Contact sales
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-slate-50 py-16">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="grid gap-8 lg:grid-cols-3">
+                    <div class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm" data-aos="zoom-in-up">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-emerald-600/10 text-emerald-700">
+                                <i class="fa-solid fa-lock"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Encryption by default</h3>
+                                <p class="mt-2 text-slate-600">
+                                    Backups are encrypted locally before upload. You maintain control of your storage.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm" data-aos="zoom-in-up"
+                        data-aos-delay="100">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-blue-600/10 text-blue-700">
+                                <i class="fa-solid fa-cloud"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Your S3 bucket</h3>
+                                <p class="mt-2 text-slate-600">
+                                    Backups are stored in your AWS account. No vendor lock-in.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm" data-aos="zoom-in-up"
+                        data-aos-delay="200">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-amber-600/10 text-amber-700">
+                                <i class="fa-solid fa-rotate"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Restore verification</h3>
+                                <p class="mt-2 text-slate-600">
+                                    Test restores run on a schedule, giving you proof your backups are usable.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mx-auto mt-12 max-w-4xl rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+                    data-aos="fade-up">
+                    <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-slate-900/5 text-slate-900">
+                                <i class="fa-solid fa-comments"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-900">Not sure which plan fits?</h3>
+                                <p class="mt-2 text-slate-600">
+                                    Tell us your MySQL environment and how often you want verification runs. We’ll
+                                    recommend a setup.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-3 sm:flex-row shrink-0">
+                            <a href="contact.html"
+                                class="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900/20">
+                                Talk to support
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                            <a href="documentation.html"
+                                class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-900/10">
+                                Read docs
+                                <i class="fa-solid fa-book"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="mx-auto max-w-3xl text-center" data-aos="fade-up">
+                    <h2 class="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+                        Pricing FAQ
+                    </h2>
+                    <p class="mt-4 text-lg text-slate-600">
+                        Common questions about storage, verification, and onboarding.
+                    </p>
+                </div>
+
+                <div class="mx-auto mt-12 max-w-3xl space-y-4">
+                    <div class="faq-item rounded-3xl border border-slate-200 bg-white shadow-sm" data-aos="zoom-in-up">
+                        <button type="button"
+                            class="faq-btn flex w-full items-center justify-between gap-4 px-6 py-5 text-left">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-blue-600/10 text-blue-700">
+                                    <i class="fa-solid fa-cloud"></i>
+                                </div>
+                                <div>
+                                    <p class="text-base font-semibold text-slate-900">Do you store my backups?</p>
+                                    <p class="mt-1 text-sm text-slate-600">Backups are stored in your own AWS account.
+                                    </p>
+                                </div>
+                            </div>
+                            <span
+                                class="faq-icon flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-slate-900/5 text-slate-900 transition-transform duration-300">
+                                <i class="fa-solid fa-plus"></i>
+                            </span>
+                        </button>
+                        <div class="faq-panel overflow-hidden px-6"
+                            style="max-height: 0px; transition: max-height 300ms ease;">
+                            <div class="pb-6 text-slate-600">
+                                You create and control the S3 bucket. BackupVerified uploads encrypted backups into that
+                                bucket so you retain full ownership.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item rounded-3xl border border-slate-200 bg-white shadow-sm" data-aos="zoom-in-up"
+                        data-aos-delay="80">
+                        <button type="button"
+                            class="faq-btn flex w-full items-center justify-between gap-4 px-6 py-5 text-left">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-emerald-600/10 text-emerald-700">
+                                    <i class="fa-solid fa-rotate"></i>
+                                </div>
+                                <div>
+                                    <p class="text-base font-semibold text-slate-900">What affects pricing?</p>
+                                    <p class="mt-1 text-sm text-slate-600">Verification frequency and database count.
+                                    </p>
+                                </div>
+                            </div>
+                            <span
+                                class="faq-icon flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-slate-900/5 text-slate-900 transition-transform duration-300">
+                                <i class="fa-solid fa-plus"></i>
+                            </span>
+                        </button>
+                        <div class="faq-panel overflow-hidden px-6"
+                            style="max-height: 0px; transition: max-height 300ms ease;">
+                            <div class="pb-6 text-slate-600">
+                                Pricing typically scales with how often restore verification runs and how many databases
+                                you manage. Storage costs are billed by AWS in your account.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item rounded-3xl border border-slate-200 bg-white shadow-sm" data-aos="zoom-in-up"
+                        data-aos-delay="160">
+                        <button type="button"
+                            class="faq-btn flex w-full items-center justify-between gap-4 px-6 py-5 text-left">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-amber-600/10 text-amber-700">
+                                    <i class="fa-solid fa-life-ring"></i>
+                                </div>
+                                <div>
+                                    <p class="text-base font-semibold text-slate-900">Can you help with onboarding?</p>
+                                    <p class="mt-1 text-sm text-slate-600">Yes — support is available.</p>
+                                </div>
+                            </div>
+                            <span
+                                class="faq-icon flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-slate-900/5 text-slate-900 transition-transform duration-300">
+                                <i class="fa-solid fa-plus"></i>
+                            </span>
+                        </button>
+                        <div class="faq-panel overflow-hidden px-6"
+                            style="max-height: 0px; transition: max-height 300ms ease;">
+                            <div class="pb-6 text-slate-600">
+                                If you need help setting up S3, configuring schedules, or choosing a verification
+                                cadence, contact support and we’ll guide you.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const btn = item.querySelector('.faq-btn');
+            const panel = item.querySelector('.faq-panel');
+            const icon = item.querySelector('.faq-icon');
+
+            panel.style.maxHeight = '0px';
+
+            btn.addEventListener('click', () => {
+                const isOpen = panel.style.maxHeight && panel.style.maxHeight !== '0px';
+
+                faqItems.forEach(other => {
+                    const otherPanel = other.querySelector('.faq-panel');
+                    const otherIcon = other.querySelector('.faq-icon');
+
+                    otherPanel.style.maxHeight = '0px';
+                    otherIcon.style.transform = 'rotate(0deg)';
+                });
+
+                if (!isOpen) {
+                    panel.style.maxHeight = panel.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(45deg)';
+                }
+            });
+        });
+    </script>
+
+
+    <div class="" id="footer"></div>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://unpkg.com/lenis@1.3.1/dist/lenis.min.js"></script>
+    <script src="./Docs/javascript/Navbar.js"></script>
+    <script src="./Docs/javascript/global.js"></script>
+    <script src="./Docs/javascript/Footer.js"></script>
+
+
+</body>
+
+</html>
