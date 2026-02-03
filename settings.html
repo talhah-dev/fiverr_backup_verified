@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>BackupVerified — Verified MySQL Backups & Restore Testing</title>
+    <meta name="description"
+        content="BackupVerified creates encrypted offsite MySQL backups and verifies them with scheduled restore testing. Own your storage in your AWS S3 bucket and get proof your backups work." />
+    <meta name="keywords"
+        content="MySQL backup, database backup, backup verification, restore testing, encrypted backups, AWS S3 backups, disaster recovery, backup monitoring, MySQL restore, backup service" />
+    <meta name="author" content="Backup Verified" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+
+    <link rel="canonical" href="https://backupverified.com/" />
+    <meta name="theme-color" content="#0B1220" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="BackupVerified" />
+    <meta property="og:title" content="BackupVerified — Verified MySQL Backups & Restore Testing" />
+    <meta property="og:description"
+        content="Encrypted offsite MySQL backups plus scheduled restore verification. You don’t just have backups — you have proof they work." />
+    <meta property="og:url" content="https://backupverified.com/" />
+    <meta property="og:image" content="https://backupverified.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BackupVerified — Verified MySQL Backups & Restore Testing" />
+    <meta name="twitter:description"
+        content="Encrypted MySQL backups plus scheduled restore verification. Own your S3 storage and get proof your backups work." />
+    <meta name="twitter:image" content="https://backupverified.com/assets/og-image.png" />
+
+    <link rel="icon" href="/docs/assets/logo.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="stylesheet" href="/docs/Style.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "BackupVerified",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Linux, macOS, Windows",
+      "url": "https://backupverified.com/",
+      "description": "BackupVerified creates encrypted offsite MySQL backups and verifies them with scheduled restore testing. Own your storage in your AWS S3 bucket and get proof your backups work.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Pricing will be published soon."
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Backup Verified",
+        "url": "https://backupverified.com/"
+      }
+    }
+  </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.1/dist/lenis.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+</head>
+
+
+<body>
+
+
+
+    <div id="bottomToTopScroll"></div>
+    <div id="navbar"></div>
+
+    <main class="bg-white">
+        <section class="relative overflow-hidden bg-slate-950 text-white">
+            <div class="absolute inset-0">
+                <div class="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-blue-500/25 blur-3xl"></div>
+                <div class="absolute top-24 -right-24 h-80 w-80 rounded-full bg-emerald-500/20 blur-3xl"></div>
+                <div
+                    class="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_0%,rgba(59,130,246,0.22),rgba(15,23,42,0))]">
+                </div>
+            </div>
+
+            <div class="relative mx-auto max-w-7xl px-6 py-12 lg:px-8">
+                <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between" data-aos="fade-up">
+                    <div>
+                        <div
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80">
+                            <span class="inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
+                            Client Portal
+                        </div>
+                        <h1 class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+                            Settings
+                        </h1>
+                        <p class="mt-3 text-white/80">
+                            Manage contact details and integration access (UI only for now).
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col gap-3 sm:flex-row">
+                        <a href="dashboard.html"
+                            class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-white/20">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            Dashboard
+                        </a>
+
+                        <button id="saveAllBtn" type="button"
+                            class="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-white/40">
+                            Save changes
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-aos="zoom-in-up" data-aos-delay="100">
+                    <div class="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <p class="text-xs font-semibold text-white/70">Email</p>
+                                <p id="statEmail" class="mt-2 text-lg font-semibold text-white">scott@codewriter.info
+                                </p>
+                                <p class="mt-1 text-xs text-white/60">Primary contact</p>
+                            </div>
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-white">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <p class="text-xs font-semibold text-white/70">Client code</p>
+                                <p id="statClient" class="mt-2 text-lg font-semibold text-white">BV-1008</p>
+                                <p class="mt-1 text-xs text-white/60">Account identifier</p>
+                            </div>
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-white">
+                                <i class="fa-solid fa-id-card"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <p class="text-xs font-semibold text-white/70">Agent key</p>
+                                <p id="statKey" class="mt-2 text-lg font-semibold text-white">Hidden</p>
+                                <p class="mt-1 text-xs text-white/60">Integration access</p>
+                            </div>
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-white">
+                                <i class="fa-solid fa-key"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <p class="text-xs font-semibold text-white/70">Status</p>
+                                <p id="statStatus" class="mt-2 text-lg font-semibold text-white">Active</p>
+                                <p class="mt-1 text-xs text-white/60">Account health</p>
+                            </div>
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-emerald-500/20 text-white">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="toast" class="mt-6 hidden rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur">
+                    <div class="flex items-start gap-4">
+                        <div id="toastIcon"
+                            class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-emerald-500/20 text-white">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <div>
+                            <p id="toastTitle" class="text-sm font-semibold text-white">Saved</p>
+                            <p id="toastMsg" class="mt-1 text-sm text-white/75">Your changes were saved (UI demo).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12 lg:py-16">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="grid gap-8 lg:grid-cols-12">
+                    <div class="lg:col-span-8" data-aos="fade-up">
+                        <div class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
+                            <div class="flex items-start justify-between gap-4">
+                                <div>
+                                    <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Contact information
+                                    </h2>
+                                    <p class="mt-2 text-slate-600">
+                                        Update your portal contact details. (Static form for now)
+                                    </p>
+                                </div>
+                                <div
+                                    class="hidden sm:flex items-center gap-2 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-2 text-xs text-slate-700">
+                                    <i class="fa-solid fa-shield-halved text-emerald-600"></i>
+                                    Secure
+                                </div>
+                            </div>
+
+                            <form id="contactForm" class="mt-8 space-y-5">
+                                <div class="grid gap-5 sm:grid-cols-2">
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-900">Full name</label>
+                                        <input id="fullName" type="text" value="Scott"
+                                            class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-900">Company</label>
+                                        <input id="company" type="text" value="Backup Verified"
+                                            class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10" />
+                                    </div>
+                                </div>
+
+                                <div class="grid gap-5 sm:grid-cols-2">
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-900">Email</label>
+                                        <input id="email" type="email" value="scott@codewriter.info"
+                                            class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-900">Phone
+                                            (optional)</label>
+                                        <input id="phone" type="tel" placeholder="+1 (555) 123-4567"
+                                            class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10" />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-900">Notification
+                                        preference</label>
+                                    <div class="mt-3 grid gap-3 sm:grid-cols-3">
+                                        <label
+                                            class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50">
+                                            <input type="radio" name="notify" class="h-4 w-4" checked />
+                                            Email
+                                        </label>
+                                        <label
+                                            class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50">
+                                            <input type="radio" name="notify" class="h-4 w-4" />
+                                            SMS
+                                        </label>
+                                        <label
+                                            class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50">
+                                            <input type="radio" name="notify" class="h-4 w-4" />
+                                            None
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-col gap-3 sm:flex-row sm:justify-end">
+                                    <button id="saveContactBtn" type="button"
+                                        class="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900/20">
+                                        Save contact info
+                                        <i class="fa-solid fa-check"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="mt-8 rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm"
+                            data-aos="zoom-in-up" data-aos-delay="100">
+                            <div class="flex items-start justify-between gap-4">
+                                <div>
+                                    <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Change password
+                                    </h2>
+                                    <p class="mt-2 text-slate-600">
+                                        Update your portal password.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <form class="mt-8 space-y-5">
+                                <div class="grid gap-5 sm:grid-cols-2">
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-900">Current
+                                            password</label>
+                                        <input type="password"
+                                            class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-900">New password</label>
+                                        <input type="password"
+                                            class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10" />
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-col gap-3 sm:flex-row sm:justify-end">
+                                    <button id="savePasswordBtn" type="button"
+                                        class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50">
+                                        Update password
+                                        <i class="fa-solid fa-lock"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-4" data-aos="zoom-in-up" data-aos-delay="150">
+                        <div class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-slate-900/5 text-slate-900">
+                                    <i class="fa-solid fa-key"></i>
+                                </div>
+                                <div class="w-full">
+                                    <h2 class="text-xl font-semibold tracking-tight text-slate-900">Agent key</h2>
+                                    <p class="mt-2 text-sm text-slate-600">
+                                        Use this key to connect your backup agent. Keep it private.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 rounded-3xl border border-slate-200 bg-slate-50 p-5">
+                                <p class="text-xs font-semibold text-slate-600">Key</p>
+                                <div class="mt-2 flex items-center justify-between gap-3">
+                                    <p id="agentKey" class="text-sm font-semibold text-slate-900 truncate">
+                                        ••••••••••••••••••••••••</p>
+                                    <button id="toggleKeyBtn" type="button"
+                                        class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-900 hover:bg-slate-50">
+                                        Show
+                                    </button>
+                                </div>
+                                <p class="mt-3 text-xs text-slate-500">
+                                    Treat this like a password. Do not share it in email or tickets.
+                                </p>
+                            </div>
+
+                            <div class="mt-4 grid gap-2 sm:grid-cols-2">
+                                <button id="copyKeyBtn" type="button"
+                                    class="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+                                    Copy
+                                    <i class="fa-solid fa-copy"></i>
+                                </button>
+                                <button id="rotateKeyBtn" type="button"
+                                    class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50">
+                                    Rotate
+                                    <i class="fa-solid fa-rotate"></i>
+                                </button>
+                            </div>
+
+                            
+                            <div class="mt-6 grid gap-2">
+                                <a href="billing.html"
+                                    class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50">
+                                    Billing
+                                    <i class="fa-solid fa-receipt"></i>
+                                </a>
+                                <a href="support.html"
+                                    class="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+                                    Contact support
+                                    <i class="fa-solid fa-headset"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="confirmModal" class="fixed inset-0 z-50 hidden">
+            <div id="confirmOverlay" class="absolute inset-0 bg-slate-950/60 backdrop-blur-sm"></div>
+
+            <div class="relative mx-auto flex min-h-full max-w-xl items-center justify-center px-6 py-10">
+                <div class="w-full rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xl">
+                    <div class="flex items-start justify-between gap-4">
+                        <div>
+                            <p class="text-sm font-semibold text-slate-900">Rotate agent key?</p>
+                            <p class="mt-2 text-sm text-slate-600">
+                                This is a UI demo. In production, rotating would invalidate the existing key.
+                            </p>
+                        </div>
+                        <button id="closeConfirmBtn" type="button"
+                            class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-900 hover:bg-slate-50">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+
+                    <div class="mt-6 flex flex-col gap-2 sm:flex-row sm:justify-end">
+                        <button id="cancelRotateBtn" type="button"
+                            class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50">
+                            Cancel
+                        </button>
+                        <button id="confirmRotateBtn" type="button"
+                            class="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+                            Rotate
+                            <i class="fa-solid fa-rotate"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const agentKeyReal = "BV_AGENTKEY_EXAMPLE_9f3a8c2d1a";
+        let isKeyVisible = false;
+
+        function showToast(type, title, msg) {
+            const toast = document.getElementById('toast');
+            const toastIcon = document.getElementById('toastIcon');
+            const toastTitle = document.getElementById('toastTitle');
+            const toastMsg = document.getElementById('toastMsg');
+
+            toast.classList.remove('hidden');
+
+            if (type === 'success') {
+                toastIcon.className = 'flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-emerald-500/20 text-white';
+                toastIcon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+            } else if (type === 'warn') {
+                toastIcon.className = 'flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-amber-500/20 text-white';
+                toastIcon.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
+            } else {
+                toastIcon.className = 'flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-rose-500/20 text-white';
+                toastIcon.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
+            }
+
+            toastTitle.textContent = title || 'Saved';
+            toastMsg.textContent = msg || '';
+
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 2600);
+        }
+
+        function maskKey() {
+            return "••••••••••••••••••••••••";
+        }
+
+        function setKeyUI() {
+            const keyEl = document.getElementById('agentKey');
+            const btn = document.getElementById('toggleKeyBtn');
+            keyEl.textContent = isKeyVisible ? agentKeyReal : maskKey();
+            btn.textContent = isKeyVisible ? 'Hide' : 'Show';
+            document.getElementById('statKey').textContent = isKeyVisible ? 'Visible' : 'Hidden';
+        }
+
+        function openModal(modal) {
+            modal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeModal(modal) {
+            modal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        document.getElementById('toggleKeyBtn')?.addEventListener('click', () => {
+            isKeyVisible = !isKeyVisible;
+            setKeyUI();
+        });
+
+        document.getElementById('copyKeyBtn')?.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(agentKeyReal);
+                showToast('success', 'Copied', 'Agent key copied to clipboard.');
+            } catch {
+                showToast('warn', 'Copy failed', 'Your browser blocked clipboard access.');
+            }
+        });
+
+        const confirmModal = document.getElementById('confirmModal');
+
+        document.getElementById('rotateKeyBtn')?.addEventListener('click', () => openModal(confirmModal));
+        document.getElementById('confirmOverlay')?.addEventListener('click', () => closeModal(confirmModal));
+        document.getElementById('closeConfirmBtn')?.addEventListener('click', () => closeModal(confirmModal));
+        document.getElementById('cancelRotateBtn')?.addEventListener('click', () => closeModal(confirmModal));
+
+        document.getElementById('confirmRotateBtn')?.addEventListener('click', () => {
+            closeModal(confirmModal);
+            showToast('success', 'Requested', 'Key rotation request recorded (UI demo).');
+        });
+
+        document.getElementById('saveContactBtn')?.addEventListener('click', () => {
+            const email = document.getElementById('email').value || '—';
+            document.getElementById('statEmail').textContent = email;
+            showToast('success', 'Saved', 'Contact information updated (UI demo).');
+        });
+
+        document.getElementById('savePasswordBtn')?.addEventListener('click', () => {
+            showToast('success', 'Updated', 'Password update submitted (UI demo).');
+        });
+
+        document.getElementById('saveAllBtn')?.addEventListener('click', () => {
+            const email = document.getElementById('email').value || '—';
+            document.getElementById('statEmail').textContent = email;
+            showToast('success', 'Saved', 'All changes saved (UI demo).');
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (!confirmModal.classList.contains('hidden')) closeModal(confirmModal);
+            }
+        });
+
+        setKeyUI();
+    </script>
+
+
+    <div class="" id="footer"></div>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://unpkg.com/lenis@1.3.1/dist/lenis.min.js"></script>
+    <script src="./Docs/javascript/admin-navbar.js"></script>
+    <script src="./Docs/javascript/global.js"></script>
+    <script src="./Docs/javascript/Footer.js"></script>
+
+
+</body>
+
+</html>

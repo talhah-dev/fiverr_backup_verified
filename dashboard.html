@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>BackupVerified — Verified MySQL Backups & Restore Testing</title>
+    <meta name="description"
+        content="BackupVerified creates encrypted offsite MySQL backups and verifies them with scheduled restore testing. Own your storage in your AWS S3 bucket and get proof your backups work." />
+    <meta name="keywords"
+        content="MySQL backup, database backup, backup verification, restore testing, encrypted backups, AWS S3 backups, disaster recovery, backup monitoring, MySQL restore, backup service" />
+    <meta name="author" content="Backup Verified" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+
+    <link rel="canonical" href="https://backupverified.com/" />
+    <meta name="theme-color" content="#0B1220" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="BackupVerified" />
+    <meta property="og:title" content="BackupVerified — Verified MySQL Backups & Restore Testing" />
+    <meta property="og:description"
+        content="Encrypted offsite MySQL backups plus scheduled restore verification. You don’t just have backups — you have proof they work." />
+    <meta property="og:url" content="https://backupverified.com/" />
+    <meta property="og:image" content="https://backupverified.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BackupVerified — Verified MySQL Backups & Restore Testing" />
+    <meta name="twitter:description"
+        content="Encrypted MySQL backups plus scheduled restore verification. Own your S3 storage and get proof your backups work." />
+    <meta name="twitter:image" content="https://backupverified.com/assets/og-image.png" />
+
+    <link rel="icon" href="/docs/assets/logo.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="stylesheet" href="/docs/Style.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "BackupVerified",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Linux, macOS, Windows",
+      "url": "https://backupverified.com/",
+      "description": "BackupVerified creates encrypted offsite MySQL backups and verifies them with scheduled restore testing. Own your storage in your AWS S3 bucket and get proof your backups work.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Pricing will be published soon."
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Backup Verified",
+        "url": "https://backupverified.com/"
+      }
+    }
+  </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.1/dist/lenis.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+</head>
+
+
+<body>
+
+
+
+    <div id="bottomToTopScroll"></div>
+    <div id="navbar"></div>
+
+
+<main class="bg-white">
+  <section class="relative overflow-hidden bg-slate-950 text-white">
+    <div class="absolute inset-0">
+      <div class="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-blue-500/25 blur-3xl"></div>
+      <div class="absolute top-24 -right-24 h-80 w-80 rounded-full bg-emerald-500/20 blur-3xl"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_0%,rgba(59,130,246,0.22),rgba(15,23,42,0))]"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-6 py-12 lg:px-8">
+      <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between" data-aos="fade-up">
+        <div>
+          <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80">
+            <span class="inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
+            Client Portal
+          </div>
+          <h1 class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+            Dashboard
+          </h1>
+          <p class="mt-3 text-white/80">
+            Track backup freshness and verification health at a glance.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3 sm:flex-row">
+          <button id="refreshBtn" type="button"
+            class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-white/20">
+            <i class="fa-solid fa-rotate"></i>
+            Refresh
+          </button>
+
+          <a href="settings.html"
+            class="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-white/40">
+            Settings
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-aos="zoom-in-up" data-aos-delay="100">
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-xs font-semibold text-white/70">Client</p>
+              <p id="clientName" class="mt-2 text-lg font-semibold text-white">Backup Verified</p>
+              <p id="clientSub" class="mt-1 text-xs text-white/60">BV-1008</p>
+            </div>
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-white">
+              <i class="fa-solid fa-id-card"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-xs font-semibold text-white/70">Last backup</p>
+              <p id="lastBackup" class="mt-2 text-lg font-semibold text-white">Feb 03, 2026 • 08:14</p>
+              <p id="lastBackupSub" class="mt-1 text-xs text-white/60">Success</p>
+            </div>
+            <div id="backupIconWrap" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-emerald-500/20 text-white">
+              <i id="backupIcon" class="fa-solid fa-circle-check"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-xs font-semibold text-white/70">Last verification</p>
+              <p id="lastVerify" class="mt-2 text-lg font-semibold text-white">Feb 03, 2026 • 08:20</p>
+              <p id="lastVerifySub" class="mt-1 text-xs text-white/60">Pass</p>
+            </div>
+            <div id="verifyIconWrap" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-emerald-500/20 text-white">
+              <i id="verifyIcon" class="fa-solid fa-circle-check"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-xs font-semibold text-white/70">Overall status</p>
+              <p id="overallStatus" class="mt-2 text-lg font-semibold text-white">Healthy</p>
+              <p id="overallSub" class="mt-1 text-xs text-white/60">All checks passing</p>
+            </div>
+            <div id="overallIconWrap" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-emerald-500/20 text-white">
+              <i id="overallIcon" class="fa-solid fa-shield-halved"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur" data-aos="fade-up" data-aos-delay="150">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-white">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-white">Quick insight</p>
+              <p id="quickInsight" class="mt-1 text-sm text-white/75">
+                Backups are running on schedule and verification is passing.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-2 sm:flex-row">
+            <a href="backups.html"
+              class="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-100">
+              Backups
+              <i class="fa-solid fa-database"></i>
+            </a>
+            <a href="verifications.html"
+              class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/15">
+              Verifications
+              <i class="fa-solid fa-rotate"></i>
+            </a>
+            <a href="billing.html"
+              class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/15">
+              Billing
+              <i class="fa-solid fa-receipt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 lg:py-16">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="grid gap-8 lg:grid-cols-12">
+        <div class="lg:col-span-8" data-aos="fade-up">
+          <div class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Recent activity</h2>
+                <p class="mt-2 text-slate-600">
+                  Latest backup and verification events.
+                </p>
+              </div>
+
+              <div class="flex flex-col gap-2 sm:flex-row">
+                <a href="backups.html"
+                  class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50">
+                  View backups
+                  <i class="fa-solid fa-database"></i>
+                </a>
+                <a href="verifications.html"
+                  class="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800">
+                  View verifications
+                  <i class="fa-solid fa-rotate"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="mt-6 grid gap-4 sm:grid-cols-2">
+              <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                <div class="flex items-start gap-4">
+                  <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-blue-600/10 text-blue-700">
+                    <i class="fa-solid fa-database"></i>
+                  </div>
+                  <div class="w-full">
+                    <p class="text-sm font-semibold text-slate-900">Latest backup</p>
+                    <p id="latestBackupLine" class="mt-2 text-sm text-slate-600">
+                      mysql-prod • 1.4 GB • Completed successfully
+                    </p>
+                    <div id="latestBackupMeta" class="mt-3 text-xs text-slate-500">
+                      Started 08:12 • Finished 08:14 • Duration 2m 11s
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                <div class="flex items-start gap-4">
+                  <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-emerald-600/10 text-emerald-700">
+                    <i class="fa-solid fa-rotate"></i>
+                  </div>
+                  <div class="w-full">
+                    <p class="text-sm font-semibold text-slate-900">Latest verification</p>
+                    <p id="latestVerifyLine" class="mt-2 text-sm text-slate-600">
+                      Restore test passed • Integrity OK
+                    </p>
+                    <div id="latestVerifyMeta" class="mt-3 text-xs text-slate-500">
+                      Restore time 42s • Checks 12/12 • Environment staging-restore
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 rounded-3xl border border-slate-200 bg-white p-6">
+              <div class="flex items-start gap-4">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-amber-600/10 text-amber-700">
+                  <i class="fa-solid fa-bell"></i>
+                </div>
+                <div class="w-full">
+                  <p class="text-sm font-semibold text-slate-900">Alerts</p>
+                  <div class="mt-3 grid gap-3 sm:grid-cols-2">
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+                      <p class="text-xs font-semibold text-slate-600">Backup window</p>
+                      <p class="mt-1 text-sm font-semibold text-slate-900">On time</p>
+                    </div>
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+                      <p class="text-xs font-semibold text-slate-600">Verification</p>
+                      <p class="mt-1 text-sm font-semibold text-slate-900">Passing</p>
+                    </div>
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+                      <p class="text-xs font-semibold text-slate-600">Storage</p>
+                      <p class="mt-1 text-sm font-semibold text-slate-900">Normal</p>
+                    </div>
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+                      <p class="text-xs font-semibold text-slate-600">Last 24 hours</p>
+                      <p class="mt-1 text-sm font-semibold text-slate-900">No incidents</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="lg:col-span-4" data-aos="zoom-in-up" data-aos-delay="100">
+          <div class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
+            <div class="flex items-start gap-4">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-slate-900/5 text-slate-900">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <div class="w-full">
+                <h2 class="text-xl font-semibold tracking-tight text-slate-900">Account overview</h2>
+                <p class="mt-2 text-sm text-slate-600">
+                  Quick access to key details.
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-6 space-y-3">
+              <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+                <p class="text-xs font-semibold text-slate-600">Email</p>
+                <p class="mt-2 text-sm font-semibold text-slate-900">scott@codewriter.info</p>
+              </div>
+
+              <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+                <p class="text-xs font-semibold text-slate-600">Plan</p>
+                <p class="mt-2 text-sm font-semibold text-slate-900">Starter</p>
+              </div>
+
+              <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+                <p class="text-xs font-semibold text-slate-600">Support</p>
+                <p class="mt-2 text-sm text-slate-700">
+                  <a class="font-semibold text-slate-900 hover:underline" href="mailto:support@backupverified.com">support@backupverified.com</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-6 grid gap-2">
+              <a href="settings.html"
+                class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50">
+                Update settings
+                <i class="fa-solid fa-gear"></i>
+              </a>
+
+              <a href="billing.html"
+                class="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900/20">
+                Billing
+                <i class="fa-solid fa-receipt"></i>
+              </a>
+            </div>
+
+            <div class="mt-6 rounded-3xl border border-slate-200 bg-white p-5">
+              <div class="flex items-start gap-4">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-emerald-600/10 text-emerald-700">
+                  <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-slate-900">Status</p>
+                  <p class="mt-2 text-sm text-slate-600">
+                    Your most recent backup and verification are in good standing.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-12 lg:pb-16">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8" data-aos="fade-up">
+      <div class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Service summary</h2>
+            <p class="mt-2 text-slate-600">
+              What Backup Verified does for your database.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-6 grid gap-4 sm:grid-cols-3">
+          <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+            <div class="flex items-start gap-4">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-blue-600/10 text-blue-700">
+                <i class="fa-solid fa-database"></i>
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-slate-900">Automated backups</p>
+                <p class="mt-2 text-sm text-slate-600">Scheduled backups with clear status and history.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+            <div class="flex items-start gap-4">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-emerald-600/10 text-emerald-700">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-slate-900">Integrity verification</p>
+                <p class="mt-2 text-sm text-slate-600">Restore tests confirm backups are usable.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+            <div class="flex items-start gap-4">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-amber-600/10 text-amber-700">
+                <i class="fa-solid fa-bell"></i>
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-slate-900">Status visibility</p>
+                <p class="mt-2 text-sm text-slate-600">A clean dashboard view for quick decisions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  const sample = {
+    clientName: "Backup Verified",
+    clientCode: "BV-1008",
+    lastBackup: "Feb 03, 2026 • 08:14",
+    lastBackupStatus: "Success",
+    lastVerify: "Feb 03, 2026 • 08:20",
+    lastVerifyStatus: "Pass",
+    overall: "Healthy",
+    overallSub: "All checks passing",
+    insight: "Backups are running on schedule and verification is passing."
+  };
+
+  function applySample() {
+    document.getElementById('clientName').textContent = sample.clientName;
+    document.getElementById('clientSub').textContent = sample.clientCode;
+
+    document.getElementById('lastBackup').textContent = sample.lastBackup;
+    document.getElementById('lastBackupSub').textContent = sample.lastBackupStatus;
+
+    document.getElementById('lastVerify').textContent = sample.lastVerify;
+    document.getElementById('lastVerifySub').textContent = sample.lastVerifyStatus;
+
+    document.getElementById('overallStatus').textContent = sample.overall;
+    document.getElementById('overallSub').textContent = sample.overallSub;
+
+    document.getElementById('quickInsight').textContent = sample.insight;
+  }
+
+  function setPill(iconWrapId, iconId, type) {
+    const wrap = document.getElementById(iconWrapId);
+    const icon = document.getElementById(iconId);
+
+    if (type === 'good') {
+      wrap.className = 'flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-emerald-500/20 text-white';
+      icon.className = 'fa-solid fa-circle-check';
+      return;
+    }
+
+    if (type === 'warn') {
+      wrap.className = 'flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-amber-500/20 text-white';
+      icon.className = 'fa-solid fa-triangle-exclamation';
+      return;
+    }
+
+    wrap.className = 'flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-rose-500/20 text-white';
+    icon.className = 'fa-solid fa-xmark';
+  }
+
+  function refreshDashboard() {
+    applySample();
+    setPill('backupIconWrap', 'backupIcon', 'good');
+    setPill('verifyIconWrap', 'verifyIcon', 'good');
+    setPill('overallIconWrap', 'overallIcon', 'good');
+
+    const btn = document.getElementById('refreshBtn');
+    btn.classList.add('opacity-80');
+    btn.innerHTML = '<i class="fa-solid fa-rotate"></i> Refreshed';
+    setTimeout(() => {
+      btn.classList.remove('opacity-80');
+      btn.innerHTML = '<i class="fa-solid fa-rotate"></i> Refresh';
+    }, 1200);
+  }
+
+  document.getElementById('refreshBtn')?.addEventListener('click', refreshDashboard);
+
+  applySample();
+</script>
+
+
+    <div class="" id="footer"></div>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://unpkg.com/lenis@1.3.1/dist/lenis.min.js"></script>
+    <script src="./Docs/javascript/admin-navbar.js"></script>
+    <script src="./Docs/javascript/global.js"></script>
+    <script src="./Docs/javascript/Footer.js"></script>
+
+
+</body>
+
+</html>
