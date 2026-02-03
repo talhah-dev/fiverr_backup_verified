@@ -33,7 +33,7 @@ navbar.innerHTML = `
         class="lg:hidden inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-3 py-2 text-slate-900 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-900/10"
         aria-controls="adminMobileNav" aria-expanded="false">
         <i id="adminNavOpenIcon" class="fa-solid fa-bars"></i>
-        <i id="adminNavCloseIcon" class="fa-solid fa-xmark hidden"></i>
+        <i id="adminNavCloseIcon" class="fa-solid fa-xmark !hidden"></i>
       </button>
     </div>
 
